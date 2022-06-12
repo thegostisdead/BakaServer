@@ -1,0 +1,34 @@
+
+#cloud-config
+autoinstall:
+  version: 1
+  locale: en_US
+  keyboard:
+    layout: en
+  ssh:
+    install-server: true
+    allow-pw: true
+    disable_root: false
+    ssh_quiet_keygen: true
+    allow_public_ssh_keys: true
+  packages:
+    - qemu-guest-agent
+    - sudo
+  storage:
+    layout:
+      name: direct
+    swap:
+      size: 0
+  user-data:
+    package_upgrade: false
+    timezone: Europe/Paris
+    users:
+      - name: ubuntu
+        groups: [adm, sudo]
+        lock-passwd: false
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        shell: /bin/bash
+        #passwd: test
+        # - or -
+        ssh_authorized_keys:
+         - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDB99JbTsEylzmVZSU4wA4ne2AEodrWRvN/XogRsojoc4G3yLEFM3tU7xyLpd7N7D/eJoOYHJKtAoujLTZ9e0CubNqRXbd/ai6lQY28jWHIgkVdXx9BexBRPMx+DI2TPX9Yrk0XoiW+RC3KptuzgtDTb0Vh0muLcpr0guSwvBBd1ia0zWRAmyzdzfGRg52cNsWxWWRX7Amd5OWgN4Q+QmczlLQdBMPXlZp0n1xe/4if8QaT65O/KqUCf3ppr9O/24cAUru2FYZH9OP3jyHawntsKnelWHvxSRwic+VleX6lv6dG2PD01SV7V9j5qJEOUhp/jHS33NOzryHDP1aKpHohoDy13+RTVo5WTz50dlGWgNAJ1RUnTWGEGcXU6+wMVcIFLYiac4IUdGjIEOL1gjHvdQUrwM68j39f191E23QE27uUnFRTQayfCRzDbCdJgmg8TXl5/iWIduzK67ap8TMNIVwE6WDp0hhRdPPpTOXY4GaEuNCiUaFufi8TpNKI8Y0= dorian@dorian-laptop.local

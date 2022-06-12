@@ -1,7 +1,6 @@
 ### Terraform ###
 # Local .terraform directories
 **/.terraform/*
-
 **/.terraform.lock.hcl
 
 # .tfstate files
@@ -39,7 +38,7 @@ terraform.rc
 ### Packer ###
 # Cache objects
 packer_cache/
-
+credentials.pkr.hcl
 
 # https://www.packer.io/guides/hcl/variables
 # Exclude all .pkrvars.hcl files, which are likely to contain sensitive data,
@@ -55,3 +54,7 @@ packer_cache/
 ### Packer Patch ###
 # ignore temporary output files
 output-*/
+
+.DS_Store
+
+*.pub
