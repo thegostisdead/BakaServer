@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+    linuxserver:
+        container_name: syncthing
+        ports:
+            - '8384:8384'
+            - '22000:22000'
+            - '21027:21027/udp'
+        volumes:
+            - '/storage/internal/config/syncthing:/config'
+            - '/storage/media/shared/:/storage-shared'
+        restart: unless-stopped
+        image: ghcr.io/linuxserver/syncthing

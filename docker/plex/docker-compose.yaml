@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+    linuxserver:
+        container_name: plex
+        network_mode: host
+        environment:
+            - VERSION=docker
+        volumes:
+            - '/storage/internal/config/plex:/config'
+            - '/storage/media/shared/:/storage-shared'
+            - '/storage/media/private/:/storage-private'
+        restart: unless-stopped
+        image: ghcr.io/linuxserver/plex

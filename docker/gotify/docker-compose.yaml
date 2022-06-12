@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+    server:
+        container_name: gotify
+        ports:
+            - '9894:80'
+        environment:
+            - TZ=Europe/Paris
+            - GOTIFY_DEFAULTUSER_NAME:/run/secrets/username
+            - GOTIFY_DEFAULTUSER_PASS:/run/secrets/password
+        volumes:
+            - '/storage/internal/config/gotify/data:/app/data'
+        restart: unless-stopped
+        image: gotify/server
+
+secrets:
+   username:
+     file: gotify_username.txt
+   password:
+     file: gotify_password.txt

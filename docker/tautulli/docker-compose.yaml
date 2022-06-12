@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+    tautulli:
+        container_name: tautulli
+        restart: unless-stopped
+        volumes:
+            - '/storage/internal/config/tautilli:/config'
+        environment:
+            - PUID=1001
+            - PGID=1001
+            - TZ=FR
+        ports:
+            - '8181:8181'
+        image: ghcr.io/tautulli/tautulli

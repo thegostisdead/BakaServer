@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+    grafana:
+        container_name: grafana
+        links:
+            - influxdb
+        ports:
+            - '3000:3000'
+        volumes:
+            - '/storage/internal/config/grafana:/var/lib/grafana'
+            - '/storage/internal/config/graphanasettings/grafana.ini:/etc/grafana/grafana.ini:ro'
+        restart: unless-stopped
+        image: grafana/grafana

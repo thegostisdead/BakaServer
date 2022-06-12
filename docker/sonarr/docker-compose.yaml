@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+    linuxserver:
+        container_name: sonarr
+        ports:
+            - '8989:8989'
+        volumes:
+            - '/internal/config/sonarr/:/config'
+            - '/storage:/storage'
+            - '/storage/downloads:/downloads'
+        restart: unless-stopped
+        image: ghcr.io/linuxserver/sonarr

@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+    linuxserver:
+        container_name: jackett
+        ports:
+            - '9117:9117'
+        volumes:
+            - '/storage/internal/config/jackett:/config'
+            - '/storage/downloads/jackett:/downloads'
+        restart: unless-stopped
+        image: ghcr.io/linuxserver/jackett

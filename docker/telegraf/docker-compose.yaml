@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+    telegraf:
+        container_name: telegraf
+        network_mode: host
+        volumes:
+            - '/storage/internal/config/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro'
+        restart: unless-stopped
+        labels:
+            - com.centurylinklabs.watchtower.enable=false
+        image: telegraf

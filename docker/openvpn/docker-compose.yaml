@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+    openvpn-client:
+        container_name: vpn
+        ports:
+            - '1160:80'
+            - '5000:5000'
+            - '51413:51413'
+            - '6881:6881/udp'
+            - '8112:8112'
+            - '49184:49184'
+            - '49184:49184/udp'
+            - '4546:3000'
+            - '9887:5000'
+        dns:
+            - 1.1.1.1
+        devices:
+            - /dev/net/tun
+        volumes:
+            - '/storage/internal/vpn:/vpn'
+        restart: unless-stopped
+        image: dperson/openvpn-client

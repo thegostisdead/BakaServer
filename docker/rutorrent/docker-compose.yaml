@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+    linuxserver:
+        container_name: rutorrent
+        volumes:
+            - '/storage/internal/config/rutorrent:/config'
+            - '/storage:/storage'
+        network_mode: 'container:vpn'
+        restart: unless-stopped
+        image: ghcr.io/linuxserver/rutorrent

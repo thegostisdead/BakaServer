@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+    linuxserver:
+        container_name: pyload
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=Europe/Paris
+        ports:
+            - '8700:8000'
+        volumes:
+            - '/storage/internal/config/pyload/:/config'
+            - '/storage/downloads/:/downloads'
+        restart: unless-stopped
+        image: ghcr.io/linuxserver/pyload
