@@ -5,6 +5,10 @@ services:
         network_mode: host
         environment:
             - VERSION=docker
+            - TZ=Europe/Paris
+            - HOSTNAME="PlexServer"
+            - PUID=${PUID}
+            - PGID=${PGID}
         volumes:
             - '/storage/internal/config/plex:/config'
             - '/storage/media/shared/:/storage-shared'

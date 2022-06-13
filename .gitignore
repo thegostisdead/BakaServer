@@ -58,3 +58,5 @@ output-*/
 .DS_Store
 
 *.pub
+
+**/.env

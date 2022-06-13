@@ -6,8 +6,8 @@ services:
             - '9894:80'
         environment:
             - TZ=Europe/Paris
-            - GOTIFY_DEFAULTUSER_NAME:/run/secrets/username
-            - GOTIFY_DEFAULTUSER_PASS:/run/secrets/password
+            - GOTIFY_DEFAULTUSER_NAME=${GOTIFY_DEFAULTUSER_NAME}
+            - GOTIFY_DEFAULTUSER_PASS=${GOTIFY_DEFAULTUSER_PASS}
         volumes:
             - '/storage/internal/config/gotify/data:/app/data'
         restart: unless-stopped

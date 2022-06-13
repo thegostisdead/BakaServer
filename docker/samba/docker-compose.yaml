@@ -12,5 +12,7 @@ services:
             - '/storage:/storage'
         environment:
             - NMBD=true
+            - TZ='Europe/Paris'
+        command: ' -n -S -g "map to guest = Bad User" -w WORKGROUP -s "storage;/storage;yes;no;no;${SMB_USERNAME};none;${SMB_USERNAME};Media share" -u "${SMB_USERNAME};${SMB_PASSWORD}"'
         restart: unless-stopped
         image: dperson/samba
